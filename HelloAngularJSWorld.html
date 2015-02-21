@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Hello World, AngularJS</title>
+		<script src="https://code.angularjs.org/1.3.13/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body ng-app="myApp">
+
+	<div ng-controller="HelloController" >
+		<h2>Hello {{ helloTo.title }} !</h2>
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+		angular.module("myApp", [])
+		.controller("HelloController", function($scope) {
+				$scope.helloTo = {};
+				$scope.helloTo.title = "World, AngularJS";
+				});
+	</script>
+
+	</body>
+</html>
