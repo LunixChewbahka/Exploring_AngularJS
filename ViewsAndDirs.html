@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+		<head>
+				<meta charset="utf-8">
+				<meta name="viewport" content="width=device-width">
+				<title>Views and Directives</title>
+				<script src="https://code.angularjs.org/1.3.13/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		</head>
+
+		<body ng-app="myApp">
+				<div ng-controller="MyController">
+						<ol>
+								<li ng-repeat="item in myData.items | filter:filterArray">{{item.text}} : {{$first}}, {{$middle}}, {{$last}}</li>
+						</ol>
+				</div>
+
+				<script type="text/javascript" charset="utf-8">
+						angular.module("myApp", [])
+						.controller("MyController", function($scope) {
+										$scope.myData = {};
+										$scope.myData.items = [{text: "one"}, {text : "two"}, {text : "three"}, {text : "four"}];
+										$scope.filterArray = function(item) {
+										if(item.text == "two") return false;
+										return true;
+										}
+										});
+				</script>
+		</body>
+</html>
